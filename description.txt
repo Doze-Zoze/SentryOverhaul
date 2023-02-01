@@ -1,0 +1,22 @@
+**This mod is in beta! Balance is not finished and needs more testing.**
+
+Sentry Overhaul is a mod aiming to make sentry weapons viable, while not making summoner overpowered when minions and sentries are used in tandem.
+Rebalances itself around Calamity!
+
+Sentry Overhaul general changes are:
+- Two new subclasses; Minion damage and Sentry damage. Both subclasses of Summon damage. These subclasses are opposite- While both benefit equally from Summon damage, items that boost Minion damage only will reduce Sentry damage by 1/4 that amount, and vice-versa.
+- Two new sentries; the Dart Staff and the Triple Dart Staff. These are intended to fill in holes in progression. Dart Staff is a pre-boss sentry, made from Wood and a Dart Trap. Triple Dart Staff is an early Hardmode upgrade to Dart Staff.
+- Flinx Fur Coat and Obsidian Armor now have sentry slots
+- Forbidden Armor provides no Minion boosts, but provides strong Sentry boosts while retaining it's Magic boosts. Additionally, it functions as a Mana Flower.
+
+Each Vanilla sentry has been considered, and many reworked, to have a more distinct identity and use case. The changes are as follows:
+-Flameburst projectiles travel faster and are more accurate, as well as having minor armor penetration. This helps them deal with distant targets easier.
+-Explosive Traps are almost entirely unchanged aside from balance. They are masters of direct damage, excelling if you can keep an enemy in a precise location for a long time.
+-Ballista sentries have a longer use time and cost more mana, but deal much more damage. This emphasises their slow-yet-strong design. Beware, though, they require precision as their projectiles are still somewhat slow and prone to missing.
+-Lightning Aura sentries have a much shorter use time and lower mana cost, allowing them to be spammed quicky for covering a quick enemies movements. While they benefit from an enemy being stuck in their radius like Explosive Traps, they don't snowball damage as well to make up for their ease of deployment.
+-Houndius Shootius was given more projectile velocity, to make it easier to hit with, as well as armor penetration. Due to this sentry's shot cooldown on spawn, it cannot be spammed.
+-Queen Spider Staff deals more damage and has armor penetration, making it much stronger if you can control a boss well to make the most of the sentry's AI/
+-Frost Hydra has been given high armor penetration, as well as giving it's projectiles local immunity frames. It essentially functions as a post-plantera Houndius Shootius upgrade.
+-Lunar Portal Staff deals much more damage, shoots much more often, and the phantasmal deathrays scan faster. This is to make the unique design it has actually deal enough damage to be usable.
+-Rainbow Crystal staff shots explode faster.
+

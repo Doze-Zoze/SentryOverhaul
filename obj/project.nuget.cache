@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "v3r0THhngn2WmUKurtU5zMHBgTCVi+OKTio7nVf88s0HlwvP0qaoUEZ2fvpUb8LCo0u3HX7x3OCJpoNeqlgd9A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\trevo\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\SentryOverhaul\\SentryOverhaul.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\trevo\\.nuget\\packages\\tmodloader.codeassist\\0.1.5\\tmodloader.codeassist.0.1.5.nupkg.sha512"
+  ],
+  "logs": []
+}

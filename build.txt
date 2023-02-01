@@ -1,0 +1,4 @@
+displayName = Sentry Overhaul (Beta)
+author = DozeZoze
+version = 0.2
+weakReferences = CalamityMod@2.0.1.5

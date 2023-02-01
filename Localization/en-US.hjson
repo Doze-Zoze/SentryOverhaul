@@ -1,0 +1,10 @@
+Mods: {
+    SentryOverhaul: 
+    {
+        DamageClassName:
+        {
+            SentryDamageClass: "sentry summon damage",
+            MinionDamageClass: "minion summon damage",
+        }
+    }
+}
