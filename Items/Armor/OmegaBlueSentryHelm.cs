@@ -2,20 +2,22 @@
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ID;
+using System.Globalization;
+using rail;
 
 namespace SentryOverhaul.Items.Armor;
 [AutoloadEquip(new EquipType[] { EquipType.Head })]
 [JITWhenModsEnabled("CalamityMod")]
-public class AuricTeslaSentryHelm : ModItem
+public class OmegaBlueSentryHelm : ModItem
 {
     public override void SetStaticDefaults()
     {
         SacrificeTotal = 1;
-        DisplayName.SetDefault("Auric Tesla Gilded Skull");
+        DisplayName.SetDefault("Omega Blue Sentry Helmet");
         ModLoader.TryGetMod("CalamityMod", out Mod calamityMod);
         if (calamityMod != null)
         {
-            Tooltip.SetDefault("15% increased Sentry damage");
+            Tooltip.SetDefault("You can move freely through liquids\n15% increased damage");
         } else
         {
             Tooltip.SetDefault("This item requires Calamity mod.");
@@ -33,9 +35,9 @@ public class AuricTeslaSentryHelm : ModItem
         ModLoader.TryGetMod("CalamityMod", out Mod calamityMod);
         if (calamityMod != null)
         {
-            if (body.type == calamityMod.Find<ModItem>("AuricTeslaBodyArmor").Type)
+            if (body.type == calamityMod.Find<ModItem>("OmegaBlueChestplate").Type)
             {
-                return legs.type == calamityMod.Find<ModItem>("AuricTeslaCuisses").Type;
+                return legs.type == calamityMod.Find<ModItem>("OmegaBlueTentacles").Type;
             }
         }
         return false;
@@ -48,38 +50,26 @@ public class AuricTeslaSentryHelm : ModItem
 
     public override void UpdateArmorSet(Player player)
     {
-        SentryPlayer splayer = player.GetModPlayer<SentryPlayer>();
-        player.setBonus = "Effects of Forbidden armor.\nMassively increased effectiveness of Old One's Army Sentries\nAll projectiles spawn healing auric orbs on enemy hits\n15% increased movement speed\n+6 Max Sentries and 75% increased sentry damage";
-        splayer.OOA_T4 = true;
-        player.thorns += 3f;
-        player.lavaMax += 240;
         player.ignoreWater = true;
-        player.crimsonRegen = true;
-        player.setHuntressT3 = true;
-        player.ballistaPanic = true;
-        player.setSquireT3 = true;
-        player.setMonkT3 = true;
-        player.setApprenticeT3 = true;
-        player.setForbidden = true;
-        player.manaFlower = true;
-        player.moveSpeed += 0.15f;
-        player.GetDamage<SentryDamageClass>() += 0.75f;
-        player.maxTurrets += 6;
-        player.lifeRegen += 4;
+        player.GetArmorPenetration<GenericDamageClass>() += 15f;
+        player.GetDamage<GenericDamageClass>() += 0.15f;
+        player.maxTurrets += 3;
         if (ModContent.GetInstance<SentryOverhaul>().calamityMod != null) 
         {
-            AuricSetBonus();
+            OmegaBlueSetBonus();
         }
 
-        void AuricSetBonus()
+        void OmegaBlueSetBonus()
         {
-            player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().auricSet = true;
+            player.setBonus = "Increases armor penetration by 15\n15% increased damage and +3 max sentries\nShort-ranged tentacles heal you by sucking enemy life\nPress your Armor Set Bonus hotkey to activate abyssal madness for 5 seconds\nAbyssal madness increases damage, critical strike chance, and tentacle aggression/range\nThis effect has a 25 second cooldown";
+            player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().omegaBlueSet = true;
             player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().WearingPostMLSummonerSet = true;
+
         }
 }
     public override void UpdateEquip(Player player)
     {
-        player.GetDamage<SentryDamageClass>() += 0.15f;
+        player.GetDamage<GenericDamageClass>() += 0.15f;
     }
 
     
@@ -90,10 +80,10 @@ public class AuricTeslaSentryHelm : ModItem
         if (calamityMod != null)
         {
             CreateRecipe()
-            .AddIngredient(calamityMod.Find<ModItem>("AuricBar"), 12)
-            .AddIngredient(ItemID.DefenderMedal, 50)
-            .AddIngredient(ItemID.AncientBattleArmorHat)
-            .AddTile(calamityMod.Find<ModTile>("CosmicAnvil"))
+            .AddIngredient(calamityMod.Find<ModItem>("ReaperTooth"), 8)
+            .AddIngredient(calamityMod.Find<ModItem>("Lumenyl"), 5)
+            .AddIngredient(calamityMod.Find<ModItem>("Tenebris"), 5)
+            .AddTile(TileID.LunarCraftingStation)
             .Register();
         }
 

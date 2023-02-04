@@ -150,7 +150,15 @@ public class SentryGlobalItem : GlobalItem
             {
                 item.sentry = true;
             }
-            
+            if (item.type == calamityMod.Find<ModItem>("CryogenicStaff").Type)
+            {
+                item.damage = 20;
+            }
+            if (item.type == calamityMod.Find<ModItem>("HivePod").Type)
+            {
+                item.damage = 35;
+            }
+
         }
         if (SentryDmgFixSet.Contains(item.type))
         {

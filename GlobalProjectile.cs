@@ -36,10 +36,28 @@ public class SentryGlobalProjectile : GlobalProjectile
             sentryDamageFixStr(calamityMod, "LostSoulSmall");
             sentryDamageFixStr(calamityMod, "AtlasMunitionsLaser");
             sentryDamageFixStr(calamityMod, "AtlasMunitionsLaserOverdrive");
-            if (projectile.type == calamityMod.Find<ModProjectile>("AtlasMunitionsAutocannon").Type || projectile.type == calamityMod.Find<ModProjectile>("AtlasMunitionsAutocannonHeld").Type || projectile.type == calamityMod.Find<ModProjectile>("AtlasMunitionsDropPod").Type || projectile.type == calamityMod.Find<ModProjectile>("AtlasMunitionsDropPodUpper").Type)
+            if (checkModProjectile(calamityMod, "AtlasMunitionsAutocannon") || checkModProjectile(calamityMod, "AtlasMunitionsAutocannonHeld") || checkModProjectile(calamityMod, "AtlasMunitionsDropPod") || checkModProjectile(calamityMod, "AtlasMunitionsDropPodUpper"))
             {
                 projectile.sentry = false;
                 projectile.DamageType = SentryDamageClass.Instance;
+            }
+            if ( checkModProjectile(calamityMod, "IceSentryShard"))
+            {
+                projectile.usesLocalNPCImmunity = true;
+                projectile.localNPCHitCooldown = -1;
+            }
+            if (checkModProjectile(calamityMod, "IceSentryFrostBolt"))
+            {
+                projectile.usesLocalNPCImmunity = true;
+                projectile.localNPCHitCooldown = 30;
+                projectile.penetrate = 5;
+            }
+            if (checkModProjectile(calamityMod, "FlyingOrthoceraStream"))
+            {
+                projectile.usesIDStaticNPCImmunity = false;
+                projectile.usesLocalNPCImmunity = true;
+                projectile.localNPCHitCooldown = -1;
+                projectile.penetrate = 1;
             }
         }
         if (SentryDmgFixSet.Contains(projectile.type))
@@ -49,6 +67,15 @@ public class SentryGlobalProjectile : GlobalProjectile
         void sentryDamageFixStr(Mod mod, string proj)
         {
             SentryDmgFixSet.Add(mod.Find<ModProjectile>(proj).Type);
+        }
+
+        bool checkModProjectile(Mod mod, string proj)
+        {
+            if (projectile.type == mod.Find<ModProjectile>(proj).Type)
+            {
+                return true;
+            }
+            else return false;
         }
 
         switch (projectile.type) {
